@@ -1,4 +1,4 @@
-# nodestarter
+# node-starter
 a node app
 
 ### get started
