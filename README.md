@@ -2,6 +2,9 @@
 a node app
 
 ### get started
+##### requirements
+- Node `>4.0.0`
+
 ```
 npm i
 npm run start 
