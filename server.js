@@ -2,7 +2,6 @@ import express from 'express';
 import http from 'http';
 import compression from 'compression';
 import { config, env } from './lib/getConfig';
-import { sendText } from './lib/responseUtils'
 
 const app = express();
 const server = http.createServer(app);
@@ -10,13 +9,8 @@ const server = http.createServer(app);
 app.set('port', (process.env.PORT || config.port || 5000));
 app.use(compression());
 
-app.get('/', (req, res) => {
-  sendText(res, 200, 'HI')
-});
-
-app.get('*', (req, res) => {
-  sendText(res, 404, 'NOPE')
-});
+app.get('/', require('./lib/routes/root'));
+app.get('*', require('./lib/routes/defaultError'));
 
 const boot = (quiet) => {
     app.listen(app.get('port'), () => {
