@@ -8,6 +8,7 @@ const server = http.createServer(app);
 
 app.set('port', (process.env.PORT || config.port || 5000));
 app.use(compression());
+app.set('view engine', 'jade');
 
 app.get('/', require('./lib/routes/root'));
 app.get('*', require('./lib/routes/defaultError'));

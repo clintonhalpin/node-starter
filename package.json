@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive test --reporter --harmony spec",
-    "start": "babel-node --presets es2015 ./server.js"
+    "prod": "NODE_ENV=development babel-node --presets es2015 ./server.js"
+    "start": "nodemon server.js --exec babel-node --presets es2015"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "chai": "^3.5.0",
     "compression": "^1.6.1",
     "express": "^4.13.4",
+    "jade": "^1.11.0",
     "request": "^2.69.0"
   },
   "engine": {
