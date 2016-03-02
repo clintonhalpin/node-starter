@@ -12,8 +12,6 @@ describe('Api', () => {
 
     it("200 when GET /", (done) => {
       request.get(baseURL, (error, response, body) => {
-        console.log(response)
-        console.log(body)
         expect(response.statusCode).to.equal(200);
         done();
       });
