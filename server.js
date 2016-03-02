@@ -7,8 +7,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.set('port', (process.env.PORT || config.port || 5000));
-// app.use(compression());
-app.use(express.static(__dirname + '/public'));
+app.use(compression());
 app.set('view engine', 'jade');
 
 app.get('/', require('./lib/routes/root'));
