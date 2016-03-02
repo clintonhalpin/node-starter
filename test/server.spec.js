@@ -1,14 +1,19 @@
-let expect = require('chai').expect;
+const expect = require('chai').expect;
 import request from 'request';
 import { boot, port, shutdown, config } from './../server';
 
 describe('Api', () => {
+
     const baseURL = config.protocol + config.host + ':' + port;
+
     before(()=> {
         boot(true);
-    })
+    });
+
     it("200 when GET /", (done) => {
       request.get(baseURL, (error, response, body) => {
+        console.log(response)
+        console.log(body)
         expect(response.statusCode).to.equal(200);
         done();
       });
